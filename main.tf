@@ -46,6 +46,9 @@ resource "azurerm_kubernetes_cluster" "tfstate" {
     node_count = 1
     vm_size    = "Standard_D2_v2"
   }
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
 # because of https://docs.microsoft.com/en-us/graph/permissions-reference#remarks-5, we will be granting this app Application.ReadWrite.All instead of Directory.ReadWrite.All in order to grant it the lowest needed level of permissions to do its job of creating other applications and service principals
