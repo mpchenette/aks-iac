@@ -20,3 +20,6 @@ jobs:
       - run: terraform validate
       - run: terraform apply -auto-approve
       - run: terraform show
+      - run: az aks get-credentials --resource-group rg-aks-prod-001 --name aks-demo
+      - run: kubectl apply -f azure-vote.yaml
+      - run: kubectl get service azure-vote-front --watch
