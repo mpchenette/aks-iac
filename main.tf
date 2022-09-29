@@ -37,9 +37,9 @@ resource "azurerm_resource_group" "tfstate" {
 }
 
 resource "azurerm_kubernetes_cluster" "tfstate" {
-  name                     = "aks-demo"
-  resource_group_name      = azurerm_resource_group.tfstate.name
-  location                 = azurerm_resource_group.tfstate.location
+  name                = "aks-demo"
+  resource_group_name = azurerm_resource_group.tfstate.name
+  location            = azurerm_resource_group.tfstate.location
   default_node_pool {
     name       = "default"
     node_count = 1
